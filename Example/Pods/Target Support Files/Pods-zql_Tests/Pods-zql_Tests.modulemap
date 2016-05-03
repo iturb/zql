@@ -1,0 +1,6 @@
+framework module Pods_zql_Tests {
+  umbrella header "Pods-zql_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
