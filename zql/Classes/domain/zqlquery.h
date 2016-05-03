@@ -1,9 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "zqlconnection.h"
+#import "zqlparam.h"
 
 @interface zqlquery:NSObject
 
-@property(strong, nonatomic)zqlconnection *connection;
-@property(copy, nonatomic)NSString *querystring;
++(instancetype)createtable:(NSString*)tablename params:(NSArray<zqlparam*>*)params;
 
 @end
