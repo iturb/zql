@@ -1,5 +1,5 @@
 PODS:
-  - zql (0.1.0)
+  - zql (1.0)
 
 DEPENDENCIES:
   - zql (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  zql: 40978227ed2d0140ad21c95fc29126dc913338d8
+  zql: c46fe3fa159f48771dc6650a913adda9bf7de4ab
 
 COCOAPODS: 0.39.0

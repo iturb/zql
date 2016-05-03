@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DA381782B224244B4F27E362'
+               BlueprintIdentifier = '31A9D4962A04EA293B054914'
                BlueprintName = 'zql'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'zql.framework'>
