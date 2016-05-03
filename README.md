@@ -8,7 +8,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-zql is available through [CocoaPods](https://github.com/iturb/zql.git). To install
+zql is available through [Github](https://github.com/iturb/zql.git). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
