@@ -17,7 +17,17 @@
     if([zqlconfig shared].dbname)
     {
         zql *manager = [[zql alloc] init];
-        [manager connect];
+        NSInteger connectionresult = [manager connect];
+        
+        if(connectionresult == SQLITE_OK)
+        {
+            
+        }
+        else
+        {
+            [manager disconnect];
+            result = [zqlresult error:connectionresult];
+        }
     }
     else
     {
@@ -41,6 +51,11 @@
 -(NSInteger)connect
 {
     return [self.connection connect:&_sqlite];
+}
+
+-(NSInteger)disconnect
+{
+    return [self.connection close:&_sqlite];
 }
 
 @end
