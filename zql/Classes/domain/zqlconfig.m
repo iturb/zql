@@ -46,6 +46,7 @@ static NSString* const zqlfoldername = @"zql";
     }
     
     [filemanager createFileAtPath:dbpath contents:nil attributes:nil];
+    [self startdb:dbname];
 }
 
 -(void)startdb:(NSString*)dbname

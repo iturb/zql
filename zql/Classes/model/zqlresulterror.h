@@ -3,4 +3,6 @@
 
 @interface zqlresulterror:zqlresult
 
++(instancetype)nodb;
+
 @end
