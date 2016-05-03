@@ -1,4 +1,5 @@
 #import "zqlquery.h"
+#import "zqlpk.h"
 
 static NSString* const zqlquerycreatetitle =            @"create table %@ ";
 static NSString* const zqlquerycreateparamsprefix =     @"(";
@@ -24,13 +25,15 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
     
     if(tablename && tablename.length && params)
     {
+        zqlpk *primarykey = [zqlpk primarykey];
+        
         NSMutableString *string = [NSMutableString string];
         [string appendFormat:zqlquerycreatetitle, tablename];
         [string appendString:zqlquerycreateparamsprefix];
         
         for(zqlparam *param in params)
         {
-            if([param.comparename isEqualToString:@""])
+            if(![param.comparename isEqualToString:primarykey.name])
             {
                 
             }

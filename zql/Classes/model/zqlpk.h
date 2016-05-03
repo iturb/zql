@@ -3,4 +3,6 @@
 
 @interface zqlpk:zqlparam
 
++(instancetype)primarykey;
+
 @end

@@ -1,5 +1,7 @@
 #import "zqlparam.h"
 
+static NSString* const zqlparamcreatestring = @"%@ %@";
+
 @interface zqlparam ()
 
 @property(copy, nonatomic)NSString *comparename;
@@ -29,6 +31,15 @@
     self.comparename = name.lowercaseString;
     
     return self;
+}
+
+#pragma mark public
+
+-(NSString*)create
+{
+    NSString *string = [NSString stringWithFormat:zqlparamcreatestring, self.name, self.type.name];
+    
+    return string;
 }
 
 @end
