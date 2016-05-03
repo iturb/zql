@@ -1,0 +1,8 @@
+use_frameworks!
+
+
+target 'zql_Tests', :exclusive => true do
+  pod 'zql', :path => '../'
+
+  
+end
