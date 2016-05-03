@@ -2,6 +2,12 @@
 
 static NSString* const zqlfoldername = @"zql";
 
+@interface zqlconfig ()
+
+@property(copy, nonatomic)NSString *dbname;
+
+@end
+
 @implementation zqlconfig
 
 +(instancetype)shared

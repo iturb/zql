@@ -13,8 +13,15 @@
 +(zqlresult*)query:(zqlquery*)query
 {
     zqlresult *result;
-    zql *manager = [[zql alloc] init];
-    [manager connect];
+    
+    if([zqlconfig shared].dbname)
+    {
+        
+    }
+    else
+    {
+        result = [zqlresult errornodb];
+    }
     
     return result;
 }

@@ -81,6 +81,7 @@
 		DAA0C6591CD9543700880D3E /* zqlresultsuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlresultsuccess.m; sourceTree = "<group>"; };
 		DAA0C65C1CD954A900880D3E /* zqlrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlrow.h; sourceTree = "<group>"; };
 		DAA0C65D1CD954A900880D3E /* zqlrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlrow.m; sourceTree = "<group>"; };
+		DAA0C6601CD95CBB00880D3E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		DBD2A23D374C331D143FF9A4197607D0 /* Pods-zql_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zql_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFA71355FEB781A80CDE391D712BF5E /* zql-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "zql-dummy.m"; sourceTree = "<group>"; };
 		E9A15ABF37CDB3BF7F9D54ADF5B0FF6E /* zql.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = zql.modulemap; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAA0C6601CD95CBB00880D3E /* libsqlite3.tbd */,
 				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
 			);
 			name = Frameworks;
@@ -216,8 +218,6 @@
 		DA5E59AF1CD9355F00D9952D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				DA5E59B01CD9355F00D9952D /* zqlresult.h */,
-				DA5E59B11CD9355F00D9952D /* zqlresult.m */,
 				DA5E59C01CD935E400D9952D /* zqltype.h */,
 				DA5E59C11CD935E400D9952D /* zqltype.m */,
 				DA5E59C41CD935F400D9952D /* zqltypeinteger.h */,
@@ -228,6 +228,8 @@
 				DA5E59D11CD937C600D9952D /* zqlparam.m */,
 				DA5E59D41CD93E2200D9952D /* zqlpk.h */,
 				DA5E59D51CD93E2200D9952D /* zqlpk.m */,
+				DA5E59B01CD9355F00D9952D /* zqlresult.h */,
+				DA5E59B11CD9355F00D9952D /* zqlresult.m */,
 				DA5E59F01CD94D4D00D9952D /* zqlresulterror.h */,
 				DA5E59F11CD94D4D00D9952D /* zqlresulterror.m */,
 				DAA0C6581CD9543700880D3E /* zqlresultsuccess.h */,

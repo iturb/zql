@@ -2,4 +2,7 @@
 
 @interface zqlresult:NSObject
 
++(instancetype)errornodb;
++(instancetype)error:(NSInteger)errornumber;
+
 @end
