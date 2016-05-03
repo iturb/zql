@@ -11,5 +11,5 @@ Super cool really
   s.author           = { "Agustin Iturbide" => "reach@iturbi.de" }
   s.source           = { :git => "https://github.com/iturb/zql.git", :tag => s.version.to_s }
   s.ios.deployment_target = '7.0'
-  s.source_files = 'zql/Classes/*/*/*'
+  s.source_files = 'zql/Classes/**/**/**'
 end
