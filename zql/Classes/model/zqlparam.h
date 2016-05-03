@@ -4,7 +4,7 @@
 @interface zqlparam:NSObject
 
 +(instancetype)type:(zqltype*)type name:(NSString*)name value:(id)value;
--(NSString*)create;
+-(NSString*)querycreate;
 
 @property(strong, nonatomic)zqltype *type;
 @property(strong, nonatomic)id value;

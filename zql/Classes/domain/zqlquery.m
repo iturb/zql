@@ -3,6 +3,7 @@
 
 static NSString* const zqlquerycreatetitle =            @"create table %@ ";
 static NSString* const zqlquerycreateparamsprefix =     @"(";
+static NSString* const zqlquerycreateparamsseparator =     @", ";
 static NSString* const zqlquerycreateparamspostfix =    @");";
 
 @interface zqlparam ()
@@ -31,15 +32,27 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
         [string appendFormat:zqlquerycreatetitle, tablename];
         [string appendString:zqlquerycreateparamsprefix];
         
-        for(zqlparam *param in params)
+        NSUInteger count = params.count;
+        
+        for(NSUInteger indexparam = 0; indexparam < count; indexparam++)
         {
+            zqlparam *param = params[indexparam];
+            
+            if(indexparam)
+            {
+                [string appendString:zqlquerycreateparamsseparator];
+            }
+            
             if(![param.comparename isEqualToString:primarykey.name])
             {
-                
+                [string appendString:[param querycreate]];
             }
         }
         
-        query = [[zqlquery alloc] init];
+        [string appendString:[primarykey querycreate]];
+        [string appendString:zqlquerycreateparamspostfix];
+        
+        query = [[zqlquery alloc] init:string];
     }
     
     return query;
@@ -48,6 +61,7 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
 -(instancetype)init:(NSString*)querystring
 {
     self = [super init];
+    self.querystring = querystring;
     
     return self;
 }

@@ -35,7 +35,7 @@ static NSString* const zqlparamcreatestring = @"%@ %@";
 
 #pragma mark public
 
--(NSString*)create
+-(NSString*)querycreate
 {
     NSString *string = [NSString stringWithFormat:zqlparamcreatestring, self.name, self.type.name];
     
