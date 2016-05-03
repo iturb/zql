@@ -1,13 +1,21 @@
 #import "zqltype.h"
+#import "zqltypeinteger.h"
+#import "zqltypetext.h"
 
 @implementation zqltype
 
--(instancetype)init:(NSString*)name
++(instancetype)integer
 {
-    self = [super init];
-    self.name = name;
+    zqltypeinteger *type = [[zqltypeinteger alloc] init];
     
-    return self;
+    return type;
+}
+
++(instancetype)text
+{
+    zqltypetext *type = [[zqltypetext alloc] init];
+    
+    return type;
 }
 
 @end

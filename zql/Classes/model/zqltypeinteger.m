@@ -6,7 +6,8 @@ static NSString* const zqltypeintegername = @"integer";
 
 -(instancetype)init
 {
-    self = [super init:zqltypeintegername];
+    self = [super init];
+    self.name = zqltypeintegername;
     
     return self;
 }

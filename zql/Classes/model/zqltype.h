@@ -2,7 +2,8 @@
 
 @interface zqltype:NSObject
 
--(instancetype)init:(NSString*)name;
++(instancetype)integer;
++(instancetype)text;
 
 @property(copy, nonatomic)NSString *name;
 
