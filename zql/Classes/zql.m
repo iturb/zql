@@ -16,7 +16,8 @@
     
     if([zqlconfig shared].dbname)
     {
-        
+        zql *manager = [[zql alloc] init];
+        [manager connect];
     }
     else
     {
@@ -37,9 +38,9 @@
 
 #pragma mark functionality
 
--(void)connect
+-(NSInteger)connect
 {
-    
+    return [self.connection connect:&_sqlite];
 }
 
 @end

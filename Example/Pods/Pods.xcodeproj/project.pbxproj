@@ -36,6 +36,7 @@
 		DAA0C65B1CD9543700880D3E /* zqlresultsuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C6591CD9543700880D3E /* zqlresultsuccess.m */; };
 		DAA0C65E1CD954A900880D3E /* zqlrow.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA0C65C1CD954A900880D3E /* zqlrow.h */; };
 		DAA0C65F1CD954A900880D3E /* zqlrow.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C65D1CD954A900880D3E /* zqlrow.m */; };
+		DAA0C6621CD95F8200880D3E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA0C6601CD95CBB00880D3E /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA0C6621CD95F8200880D3E /* libsqlite3.tbd in Frameworks */,
 				A5704245E1EB960842657F7A2FC9C6C1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

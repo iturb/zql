@@ -5,9 +5,11 @@ static NSInteger const zqlconnectiontype = SQLITE_OPEN_SHAREDCACHE | SQLITE_OPEN
 
 @implementation zqlconnection
 
--(void)connect
+-(NSInteger)connect:(sqlite3**)sqlite
 {
-//    sqlite3_open_v2(_database.UTF8String, _sqlite, zqlconnectiontype, nil);
+    NSString *dbname = [zqlconfig shared].dbname;
+    
+    return sqlite3_open_v2(dbname.UTF8String, sqlite, zqlconnectiontype, nil);
 }
 
 @end
