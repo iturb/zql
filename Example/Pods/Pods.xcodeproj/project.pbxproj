@@ -32,6 +32,10 @@
 		DA5E59EF1CD94BB300D9952D /* zqlconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5E59CC1CD9375900D9952D /* zqlconfig.h */; };
 		DA5E59F21CD94D4D00D9952D /* zqlresulterror.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5E59F01CD94D4D00D9952D /* zqlresulterror.h */; };
 		DA5E59F31CD94D4D00D9952D /* zqlresulterror.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59F11CD94D4D00D9952D /* zqlresulterror.m */; };
+		DAA0C65A1CD9543700880D3E /* zqlresultsuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA0C6581CD9543700880D3E /* zqlresultsuccess.h */; };
+		DAA0C65B1CD9543700880D3E /* zqlresultsuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C6591CD9543700880D3E /* zqlresultsuccess.m */; };
+		DAA0C65E1CD954A900880D3E /* zqlrow.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA0C65C1CD954A900880D3E /* zqlrow.h */; };
+		DAA0C65F1CD954A900880D3E /* zqlrow.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C65D1CD954A900880D3E /* zqlrow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +77,10 @@
 		DA5E59F01CD94D4D00D9952D /* zqlresulterror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlresulterror.h; sourceTree = "<group>"; };
 		DA5E59F11CD94D4D00D9952D /* zqlresulterror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlresulterror.m; sourceTree = "<group>"; };
 		DA8AF552B57E1DE705AA814000A9BBE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAA0C6581CD9543700880D3E /* zqlresultsuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlresultsuccess.h; sourceTree = "<group>"; };
+		DAA0C6591CD9543700880D3E /* zqlresultsuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlresultsuccess.m; sourceTree = "<group>"; };
+		DAA0C65C1CD954A900880D3E /* zqlrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlrow.h; sourceTree = "<group>"; };
+		DAA0C65D1CD954A900880D3E /* zqlrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlrow.m; sourceTree = "<group>"; };
 		DBD2A23D374C331D143FF9A4197607D0 /* Pods-zql_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zql_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFA71355FEB781A80CDE391D712BF5E /* zql-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "zql-dummy.m"; sourceTree = "<group>"; };
 		E9A15ABF37CDB3BF7F9D54ADF5B0FF6E /* zql.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = zql.modulemap; sourceTree = "<group>"; };
@@ -222,6 +230,10 @@
 				DA5E59D51CD93E2200D9952D /* zqlpk.m */,
 				DA5E59F01CD94D4D00D9952D /* zqlresulterror.h */,
 				DA5E59F11CD94D4D00D9952D /* zqlresulterror.m */,
+				DAA0C6581CD9543700880D3E /* zqlresultsuccess.h */,
+				DAA0C6591CD9543700880D3E /* zqlresultsuccess.m */,
+				DAA0C65C1CD954A900880D3E /* zqlrow.h */,
+				DAA0C65D1CD954A900880D3E /* zqlrow.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -255,6 +267,8 @@
 				609CF2E8AE2504ED992302C710D986AC /* zql-umbrella.h in Headers */,
 				DA5E59EA1CD94B9800D9952D /* zqltypeinteger.h in Headers */,
 				DA5E59E51CD94B8100D9952D /* zqlpk.h in Headers */,
+				DAA0C65A1CD9543700880D3E /* zqlresultsuccess.h in Headers */,
+				DAA0C65E1CD954A900880D3E /* zqlrow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,8 +333,10 @@
 				DA5E59F31CD94D4D00D9952D /* zqlresulterror.m in Sources */,
 				DA5E59E01CD94B5B00D9952D /* zqltype.m in Sources */,
 				DA5E59E41CD94B7D00D9952D /* zqlpk.m in Sources */,
+				DAA0C65F1CD954A900880D3E /* zqlrow.m in Sources */,
 				DA5E59E81CD94B8F00D9952D /* zqltypetext.m in Sources */,
 				9B0CEA541B976E1E15796306482B0655 /* zql-dummy.m in Sources */,
+				DAA0C65B1CD9543700880D3E /* zqlresultsuccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
