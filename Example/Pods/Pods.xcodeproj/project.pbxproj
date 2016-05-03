@@ -31,6 +31,8 @@
 		DA5E59CF1CD9375900D9952D /* zqlconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59CD1CD9375900D9952D /* zqlconfig.m */; };
 		DA5E59D21CD937C600D9952D /* zqlparam.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5E59D01CD937C600D9952D /* zqlparam.h */; };
 		DA5E59D31CD937C600D9952D /* zqlparam.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59D11CD937C600D9952D /* zqlparam.m */; };
+		DA5E59D61CD93E2200D9952D /* zqlpk.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5E59D41CD93E2200D9952D /* zqlpk.h */; };
+		DA5E59D71CD93E2200D9952D /* zqlpk.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59D51CD93E2200D9952D /* zqlpk.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		DA5E59CD1CD9375900D9952D /* zqlconfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlconfig.m; sourceTree = "<group>"; };
 		DA5E59D01CD937C600D9952D /* zqlparam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlparam.h; sourceTree = "<group>"; };
 		DA5E59D11CD937C600D9952D /* zqlparam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlparam.m; sourceTree = "<group>"; };
+		DA5E59D41CD93E2200D9952D /* zqlpk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlpk.h; sourceTree = "<group>"; };
+		DA5E59D51CD93E2200D9952D /* zqlpk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlpk.m; sourceTree = "<group>"; };
 		DA8AF552B57E1DE705AA814000A9BBE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBD2A23D374C331D143FF9A4197607D0 /* Pods-zql_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zql_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFA71355FEB781A80CDE391D712BF5E /* zql-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "zql-dummy.m"; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				DA5E59C91CD935FF00D9952D /* zqltypetext.m */,
 				DA5E59D01CD937C600D9952D /* zqlparam.h */,
 				DA5E59D11CD937C600D9952D /* zqlparam.m */,
+				DA5E59D41CD93E2200D9952D /* zqlpk.h */,
+				DA5E59D51CD93E2200D9952D /* zqlpk.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 				DA5E59CE1CD9375900D9952D /* zqlconfig.h in Headers */,
 				DA5E59BC1CD9355F00D9952D /* zql.h in Headers */,
 				DA5E59C61CD935F400D9952D /* zqltypeinteger.h in Headers */,
+				DA5E59D61CD93E2200D9952D /* zqlpk.h in Headers */,
 				DA5E59D21CD937C600D9952D /* zqlparam.h in Headers */,
 				1AE489279A6F80BB887382002B2015C9 /* Pods-zql_Tests-umbrella.h in Headers */,
 				DA5E59CA1CD935FF00D9952D /* zqltypetext.h in Headers */,
@@ -355,6 +362,7 @@
 			files = (
 				DA5E59BB1CD9355F00D9952D /* zqlresult.m in Sources */,
 				DA5E59D31CD937C600D9952D /* zqlparam.m in Sources */,
+				DA5E59D71CD93E2200D9952D /* zqlpk.m in Sources */,
 				8098B22339AD7372055ED40A98749505 /* Pods-zql_Tests-dummy.m in Sources */,
 				DA5E59C71CD935F400D9952D /* zqltypeinteger.m in Sources */,
 				DA5E59BD1CD9355F00D9952D /* zql.m in Sources */,

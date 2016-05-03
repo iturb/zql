@@ -4,6 +4,11 @@ static NSString* const zqlquerycreatetitle =            @"create table %@ ";
 static NSString* const zqlquerycreateparamsprefix =     @"(";
 static NSString* const zqlquerycreateparamspostfix =    @");";
 
+@interface zqlparam ()
+
+@property(copy, nonatomic)NSString *comparename;
+
+@end
 
 @interface zqlquery ()
 
@@ -25,7 +30,10 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
         
         for(zqlparam *param in params)
         {
-            if([param.name isEqualToString:@""])
+            if([param.comparename isEqualToString:@""])
+            {
+                
+            }
         }
         
         query = [[zqlquery alloc] init];
