@@ -3,8 +3,7 @@
 
 @interface zqlquery:NSObject
 
--(instancetype)init:(NSString*)querystring;
-
 @property(strong, nonatomic)zqlconnection *connection;
+@property(copy, nonatomic)NSString *querystring;
 
 @end
