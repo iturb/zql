@@ -1,12 +1,5 @@
-//
-//  zqlconnection.h
-//  Pods
-//
-//  Created by zero on 5/3/16.
-//
-//
-
 #import <Foundation/Foundation.h>
+#import "sqlite3.h"
 
 @interface zqlconnection : NSObject
 
