@@ -72,4 +72,12 @@ static NSString* const zqlerrorpermission =             @"Access permission deni
     return result;
 }
 
+-(instancetype)init
+{
+    self = [super init];
+    self.success = NO;
+    
+    return self;
+}
+
 @end

@@ -1,10 +1,11 @@
 #import "zql.h"
 #import "zqlconnection.h"
-#import "zqlresultsuccess.h"
+#import "zqlqueryprocessor.h"
 
 @interface zql ()
 
 @property(strong, nonatomic)zqlconnection *connection;
+@property(strong, nonatomic)zqlqueryprocessor *queryprocessor;
 @property(assign, nonatomic)sqlite3 *sqlite;
 
 @end
@@ -20,8 +21,9 @@
         zql *manager = [[zql alloc] init];
         result = [manager connect];
         
-        if([result isKindOfClass:[zqlresultsuccess class]])
+        if(result.success)
         {
+            
         }
         else
         {
@@ -41,6 +43,7 @@
     self = [super init];
     
     self.connection = [[zqlconnection alloc] init];
+    self.queryprocessor = [[zqlqueryprocessor alloc] init];
     
     return self;
 }
