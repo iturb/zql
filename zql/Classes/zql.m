@@ -21,7 +21,7 @@
         
         if(connectionresult == SQLITE_OK)
         {
-            
+            sqlite3_stmt *statement;
         }
         else
         {

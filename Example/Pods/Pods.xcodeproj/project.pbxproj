@@ -10,6 +10,8 @@
 		609CF2E8AE2504ED992302C710D986AC /* zql-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AC87BE30E7C10A24CCDA44DC5A95D0 /* zql-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B0CEA541B976E1E15796306482B0655 /* zql-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFA71355FEB781A80CDE391D712BF5E /* zql-dummy.m */; };
 		A5704245E1EB960842657F7A2FC9C6C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		DA33E4C51CDE91210072FB75 /* zqlqueryprocessor.h in Headers */ = {isa = PBXBuildFile; fileRef = DA33E4C31CDE91210072FB75 /* zqlqueryprocessor.h */; };
+		DA33E4C61CDE91210072FB75 /* zqlqueryprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA33E4C41CDE91210072FB75 /* zqlqueryprocessor.m */; };
 		DA5E59DC1CD94B4C00D9952D /* zqlconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59CD1CD9375900D9952D /* zqlconfig.m */; };
 		DA5E59DD1CD94B5000D9952D /* zqlconnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59AC1CD9355F00D9952D /* zqlconnection.m */; };
 		DA5E59DE1CD94B5300D9952D /* zqlquery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E59AE1CD9355F00D9952D /* zqlquery.m */; };
@@ -55,6 +57,8 @@
 		B1B90484BCA1DEEDCDABD46F462403F9 /* Pods-zql_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zql_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BDD98B2E0072D676BE2831091FD7A277 /* Pods-zql_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-zql_Tests-dummy.m"; sourceTree = "<group>"; };
+		DA33E4C31CDE91210072FB75 /* zqlqueryprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlqueryprocessor.h; sourceTree = "<group>"; };
+		DA33E4C41CDE91210072FB75 /* zqlqueryprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlqueryprocessor.m; sourceTree = "<group>"; };
 		DA5E59AB1CD9355F00D9952D /* zqlconnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlconnection.h; sourceTree = "<group>"; };
 		DA5E59AC1CD9355F00D9952D /* zqlconnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqlconnection.m; sourceTree = "<group>"; };
 		DA5E59AD1CD9355F00D9952D /* zqlquery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqlquery.h; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 				DA5E59AC1CD9355F00D9952D /* zqlconnection.m */,
 				DA5E59AD1CD9355F00D9952D /* zqlquery.h */,
 				DA5E59AE1CD9355F00D9952D /* zqlquery.m */,
+				DA33E4C31CDE91210072FB75 /* zqlqueryprocessor.h */,
+				DA33E4C41CDE91210072FB75 /* zqlqueryprocessor.m */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA33E4C51CDE91210072FB75 /* zqlqueryprocessor.h in Headers */,
 				DA5E59EB1CD94B9D00D9952D /* zqltype.h in Headers */,
 				DA5E59ED1CD94BA900D9952D /* zqlquery.h in Headers */,
 				DA5E59E31CD94B7400D9952D /* zql.h in Headers */,
@@ -327,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA33E4C61CDE91210072FB75 /* zqlqueryprocessor.m in Sources */,
 				DA5E59E61CD94B8500D9952D /* zqlparam.m in Sources */,
 				DA5E59E21CD94B7100D9952D /* zql.m in Sources */,
 				DA5E59DC1CD94B4C00D9952D /* zqlconfig.m in Sources */,
