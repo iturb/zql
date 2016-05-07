@@ -6,7 +6,6 @@
 
 @property(strong, nonatomic)zqlconnection *connection;
 @property(strong, nonatomic)zqlqueryprocessor *queryprocessor;
-@property(strong, nonatomic)zqlresult *result;
 @property(assign, nonatomic)sqlite3 *sqlite;
 
 @end
@@ -20,20 +19,31 @@
     if([zqlconfig shared].dbname)
     {
         zql *manager = [[zql alloc] init:query];
-        [manager connect];
+        result = [manager connect];
         
-        if(manager.result.success)
+        if(result.success)
         {
-            [manager prepare];
+            result = [manager prepare];
             
-            if(manager.result.success)
+            if(result.success)
             {
+                result = [manager step];
                 
+                if(result.success)
+                {
+                    result = [manager finalizestatement];
+                    
+                    if(result.success)
+                    {
+                        
+                    }
+                }
             }
+            
+            [manager disconnect];
         }
         else
         {
-            result = manager.result;
             [manager disconnect];
         }
     }
@@ -57,26 +67,38 @@
 
 #pragma mark functionality
 
--(void)connect
+-(zqlresult*)connect
 {
     NSInteger resultnumber = [self.connection connect:&_sqlite];
-    self.result = [zqlresult sqlresponse:resultnumber];
+    
+    return [zqlresult sqlresponse:resultnumber];
 }
 
--(void)disconnect
+-(zqlresult*)disconnect
 {
     NSInteger resultnumber = [self.connection close:&_sqlite];
-    self.result = [zqlresult sqlresponse:resultnumber];
+    
+    return [zqlresult sqlresponse:resultnumber];
 }
 
--(void)prepare
+-(zqlresult*)prepare
 {
-    self.result = [self.queryprocessor prepare:&_sqlite];
+    return [self.queryprocessor prepare:self.sqlite];
 }
 
--(void)step
+-(zqlresult*)step
 {
-    self.result = [self.queryprocessor step];
+    return [self.queryprocessor step];
+}
+
+-(zqlresult*)finalizestatement
+{
+    return [self.queryprocessor finalizestatement];
+}
+
+-(NSInteger)lastinsert
+{
+    return [self.queryprocessor lastinsert:self.sqlite];
 }
 
 @end

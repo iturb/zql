@@ -19,9 +19,9 @@
 
 #pragma mark public
 
--(zqlresult*)prepare:(sqlite3**)sqlite;
+-(zqlresult*)prepare:(sqlite3*)sqlite
 {
-    NSInteger resultnumber = sqlite3_prepare_v2(*sqlite, self.query.querystring.UTF8String, -1, &_statement, nil);
+    NSInteger resultnumber = sqlite3_prepare_v2(sqlite, self.query.querystring.UTF8String, -1, &_statement, nil);
     zqlresult *result = [zqlresult sqlresponse:resultnumber];
     
     return result;
@@ -33,6 +33,21 @@
     zqlresult *result = [zqlresult sqlresponse:resultnumber];
     
     return result;
+}
+
+-(zqlresult*)finalizestatement
+{
+    NSInteger resultnumber = sqlite3_finalize(self.statement);
+    zqlresult *result = [zqlresult sqlresponse:resultnumber];
+    
+    return result;
+}
+
+-(NSInteger)lastinsert:(sqlite3*)sqlite
+{
+    NSInteger lastinsert = (NSInteger)sqlite3_last_insert_rowid(sqlite);
+    
+    return lastinsert;
 }
 
 @end

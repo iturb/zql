@@ -6,7 +6,9 @@
 @interface zqlqueryprocessor:NSObject
 
 -(instancetype)init:(zqlquery*)query;
--(zqlresult*)prepare:(sqlite3**)sqlite;
+-(zqlresult*)prepare:(sqlite3*)sqlite;
 -(zqlresult*)step;
+-(zqlresult*)finalizestatement;
+-(NSInteger)lastinsert:(sqlite3*)sqlite;
 
 @end
