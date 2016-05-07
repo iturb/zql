@@ -7,5 +7,6 @@
 
 -(instancetype)init:(zqlquery*)query;
 -(zqlresult*)prepare:(sqlite3**)sqlite;
+-(zqlresult*)step;
 
 @end

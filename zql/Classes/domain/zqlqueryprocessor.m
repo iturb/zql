@@ -27,4 +27,12 @@
     return result;
 }
 
+-(zqlresult*)step
+{
+    NSInteger resultnumber = sqlite3_step(self.statement);
+    zqlresult *result = [zqlresult sqlresponse:resultnumber];
+    
+    return result;
+}
+
 @end

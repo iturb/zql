@@ -74,4 +74,9 @@
     self.result = [self.queryprocessor prepare:&_sqlite];
 }
 
+-(void)step
+{
+    self.result = [self.queryprocessor step];
+}
+
 @end
