@@ -6,6 +6,7 @@
 
 @property(strong, nonatomic)zqlconnection *connection;
 @property(strong, nonatomic)zqlqueryprocessor *queryprocessor;
+@property(strong, nonatomic)zqlresult *result;
 @property(assign, nonatomic)sqlite3 *sqlite;
 
 @end
@@ -18,15 +19,21 @@
     
     if([zqlconfig shared].dbname)
     {
-        zql *manager = [[zql alloc] init];
-        result = [manager connect];
+        zql *manager = [[zql alloc] init:query];
+        [manager connect];
         
-        if(result.success)
+        if(manager.result.success)
         {
+            [manager prepare];
             
+            if(manager.result.success)
+            {
+                
+            }
         }
         else
         {
+            result = manager.result;
             [manager disconnect];
         }
     }
@@ -38,32 +45,33 @@
     return result;
 }
 
--(instancetype)init
+-(instancetype)init:(zqlquery*)query
 {
     self = [super init];
     
     self.connection = [[zqlconnection alloc] init];
-    self.queryprocessor = [[zqlqueryprocessor alloc] init];
+    self.queryprocessor = [[zqlqueryprocessor alloc] init:query];
     
     return self;
 }
 
 #pragma mark functionality
 
--(zqlresult*)connect
+-(void)connect
 {
     NSInteger resultnumber = [self.connection connect:&_sqlite];
-    zqlresult *result = [zqlresult sqlresponse:resultnumber];
-    
-    return result;
+    self.result = [zqlresult sqlresponse:resultnumber];
 }
 
--(zqlresult*)disconnect
+-(void)disconnect
 {
     NSInteger resultnumber = [self.connection close:&_sqlite];
-    zqlresult *result = [zqlresult sqlresponse:resultnumber];
-    
-    return result;
+    self.result = [zqlresult sqlresponse:resultnumber];
+}
+
+-(void)prepare
+{
+    self.result = [self.queryprocessor prepare:&_sqlite];
 }
 
 @end

@@ -1,9 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 #import "zqlquery.h"
+#import "zqlresult.h"
 
 @interface zqlqueryprocessor:NSObject
 
--(NSInteger)prepare:(sqlite3**)sqlite query:(zqlquery*)query;
+-(instancetype)init:(zqlquery*)query;
+-(zqlresult*)prepare:(sqlite3**)sqlite;
 
 @end

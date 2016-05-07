@@ -2,15 +2,27 @@
 
 @interface zqlqueryprocessor ()
 
+@property(weak, nonatomic)zqlquery *query;
 @property(assign, nonatomic)sqlite3_stmt *statement;
 
 @end
 
 @implementation zqlqueryprocessor
 
--(NSInteger)prepare:(sqlite3**)sqlite query:(zqlquery*)query
+-(instancetype)init:(zqlquery*)query
 {
-    NSInteger result = sqlite3_prepare_v2(*sqlite, query.querystring.UTF8String, -1, &_statement, nil);
+    self = [super init];
+    self.query = query;
+    
+    return self;
+}
+
+#pragma mark public
+
+-(zqlresult*)prepare:(sqlite3**)sqlite;
+{
+    NSInteger resultnumber = sqlite3_prepare_v2(*sqlite, self.query.querystring.UTF8String, -1, &_statement, nil);
+    zqlresult *result = [zqlresult sqlresponse:resultnumber];
     
     return result;
 }
