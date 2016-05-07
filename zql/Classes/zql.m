@@ -1,5 +1,6 @@
 #import "zql.h"
 #import "zqlconnection.h"
+#import "zqlresultsuccess.h"
 
 @interface zql ()
 
@@ -17,16 +18,14 @@
     if([zqlconfig shared].dbname)
     {
         zql *manager = [[zql alloc] init];
-        NSInteger connectionresult = [manager connect];
+        result = [manager connect];
         
-        if(connectionresult == SQLITE_OK)
+        if([result isKindOfClass:[zqlresultsuccess class]])
         {
-            sqlite3_stmt *statement;
         }
         else
         {
             [manager disconnect];
-            result = [zqlresult error:connectionresult];
         }
     }
     else
@@ -48,14 +47,20 @@
 
 #pragma mark functionality
 
--(NSInteger)connect
+-(zqlresult*)connect
 {
-    return [self.connection connect:&_sqlite];
+    NSInteger resultnumber = [self.connection connect:&_sqlite];
+    zqlresult *result = [zqlresult sqlresponse:resultnumber];
+    
+    return result;
 }
 
--(NSInteger)disconnect
+-(zqlresult*)disconnect
 {
-    return [self.connection close:&_sqlite];
+    NSInteger resultnumber = [self.connection close:&_sqlite];
+    zqlresult *result = [zqlresult sqlresponse:resultnumber];
+    
+    return result;
 }
 
 @end
