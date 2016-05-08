@@ -46,6 +46,7 @@
         
         if(success.moresteps)
         {
+            NSMutableArray
             NSMutableArray *columns = [NSMutableArray array];
             NSInteger columncount = sqlite3_column_count(self.statement);
             
