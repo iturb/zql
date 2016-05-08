@@ -18,6 +18,13 @@
     return self;
 }
 
+#pragma mark functionality
+
+-(NSInteger)stepresult
+{
+    return sqlite3_step(self.statement);
+}
+
 #pragma mark public
 
 -(zqlresult*)prepare:(sqlite3*)sqlite
@@ -30,8 +37,26 @@
 
 -(zqlresult*)step
 {
-    NSInteger resultnumber = sqlite3_step(self.statement);
+    NSInteger resultnumber = [self stepresult];
     zqlresult *result = [zqlresult sqlresponse:resultnumber];
+    
+    if([result isKindOfClass:[zqlresultsuccess class]])
+    {
+        zqlresultsuccess *success = (zqlresultsuccess*)result;
+        
+        if(success.moresteps)
+        {
+            NSMutableArray *columns = [NSMutableArray array];
+            NSInteger columncount = sqlite3_column_count(self.statement);
+            
+            for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
+            {
+                const char *colname = sqlite3_column_name(self.statement, (int)indexcolumn);
+                NSString *columname = [NSString stringWithUTF8String:colname];
+                [columns addObject:columns];
+            }
+        }
+    }
     
     return result;
 }

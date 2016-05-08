@@ -36,6 +36,8 @@
 		B8ADCFF789B16241BF99AB6DDD5111E7 /* zqltypeinteger.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DA9A28BFEA33AAA1FFFAA5F827B0D0F /* zqltypeinteger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C1661D1C6537EFDE39196C650A6688CD /* zqlconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EC5D4539524F0A44748AF7B141203CE /* zqlconfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C804EA8141A4F76F2CA0E7C34485A63B /* zqlparam.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DEC0F45E6FA3B6A5B157AB7404A4EC /* zqlparam.m */; };
+		DAB26D6C1CDF4BE900E1580F /* zqltypefloat.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB26D6A1CDF4BE900E1580F /* zqltypefloat.h */; };
+		DAB26D6D1CDF4BE900E1580F /* zqltypefloat.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB26D6B1CDF4BE900E1580F /* zqltypefloat.m */; };
 		E50DCD206C717EAD954C3BE29D5A6037 /* zqltypetext.h in Headers */ = {isa = PBXBuildFile; fileRef = 848D830ECD32723E92A94A9BF7EEF025 /* zqltypetext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1ECEDB32C138DEC2BEABA2F6199B84E /* zqlquery.m in Sources */ = {isa = PBXBuildFile; fileRef = 458490CA19E98D733238C7E5C88A328F /* zqlquery.m */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		D8D2F2E229B2FC31B23D902A5CD5E473 /* zqlqueryprocessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = zqlqueryprocessor.m; sourceTree = "<group>"; };
 		D923329AACB8468C7BC9404049C30FCD /* zqltypeinteger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = zqltypeinteger.m; sourceTree = "<group>"; };
 		DA8AF552B57E1DE705AA814000A9BBE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB26D6A1CDF4BE900E1580F /* zqltypefloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zqltypefloat.h; sourceTree = "<group>"; };
+		DAB26D6B1CDF4BE900E1580F /* zqltypefloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zqltypefloat.m; sourceTree = "<group>"; };
 		DBC8DCC1D089061EF10573EBECEAAA69 /* zqlresultsuccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = zqlresultsuccess.h; sourceTree = "<group>"; };
 		DBD2A23D374C331D143FF9A4197607D0 /* Pods-zql_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zql_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFA71355FEB781A80CDE391D712BF5E /* zql-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "zql-dummy.m"; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				CE4688EE66C0C696B3CFE2E3147E3F33 /* zqltype.m */,
 				7DA9A28BFEA33AAA1FFFAA5F827B0D0F /* zqltypeinteger.h */,
 				D923329AACB8468C7BC9404049C30FCD /* zqltypeinteger.m */,
+				DAB26D6A1CDF4BE900E1580F /* zqltypefloat.h */,
+				DAB26D6B1CDF4BE900E1580F /* zqltypefloat.m */,
 				848D830ECD32723E92A94A9BF7EEF025 /* zqltypetext.h */,
 				7FFD52B5E12E08326297E3898C2EBC23 /* zqltypetext.m */,
 			);
@@ -264,6 +270,7 @@
 				5774207CEA0F109EF57242B2B87E3E14 /* zql-umbrella.h in Headers */,
 				9E682B5FB0569E1474EC9CF228295F45 /* zql.h in Headers */,
 				C1661D1C6537EFDE39196C650A6688CD /* zqlconfig.h in Headers */,
+				DAB26D6C1CDF4BE900E1580F /* zqltypefloat.h in Headers */,
 				A9096DC77720224AC129BB30C64C13BE /* zqlconnection.h in Headers */,
 				6B628EAED1BC40C51CEBE6CFF96BD12E /* zqlparam.h in Headers */,
 				B56470014FBA7C10AF40D86A7A687855 /* zqlpk.h in Headers */,
@@ -338,6 +345,7 @@
 				3BD8A0E776E5E34DDA918610CCF89B3C /* zqlpk.m in Sources */,
 				F1ECEDB32C138DEC2BEABA2F6199B84E /* zqlquery.m in Sources */,
 				3E90F165B42E72B4CA7BA06D3EA914C1 /* zqlqueryprocessor.m in Sources */,
+				DAB26D6D1CDF4BE900E1580F /* zqltypefloat.m in Sources */,
 				3D6B871BCFBE4696FD442945860B1B96 /* zqlresult.m in Sources */,
 				322DC868921F79F3A824C1668E10F8B5 /* zqlresulterror.m in Sources */,
 				4E521FA2BFB277886CD75C835803369D /* zqlresultsuccess.m in Sources */,
