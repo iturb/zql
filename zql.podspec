@@ -12,5 +12,5 @@ Super cool really
   s.source           = { :git => "https://github.com/iturb/zql.git", :tag => s.version.to_s }
   s.ios.deployment_target = '7.0'
   s.source_files = 'zql/Classes/**/**/*'
-  s.library = 'libsqlite3'
+  s.library = 'sqlite3'
 end
