@@ -76,7 +76,7 @@ static NSString* const zqlerrorpermission =             @"Access permission deni
     }
     else
     {
-        result = [[zqlresultsuccess alloc] init];
+        result = [[zqlresultsuccess alloc] init:moresteps];
     }
     
     return result;
