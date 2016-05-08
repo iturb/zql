@@ -26,6 +26,7 @@ static NSString* const zqlerrorpermission =             @"Access permission deni
 
 +(instancetype)sqlresponse:(NSInteger)responsenumber
 {
+    BOOL moresteps = NO;
     NSString *errordescr;
     
     switch(responsenumber)
@@ -49,6 +50,15 @@ static NSString* const zqlerrorpermission =             @"Access permission deni
             
             errordescr = zqlerrorpermission;
             
+            break;
+            
+        case SQLITE_ROW:
+            
+            moresteps = YES;
+            
+            break;
+            
+        case SQLITE_DONE:
             break;
             
         default:
