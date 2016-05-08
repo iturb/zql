@@ -4,6 +4,7 @@
 @interface zqlquery:NSObject
 
 +(instancetype)createtable:(NSString*)tablename params:(NSArray<zqlparam*>*)params;
++(instancetype)insert:(NSString*)tablename params:(NSArray<zqlparam*>*)params;
 
 @property(copy, nonatomic, readonly)NSString *querystring;
 

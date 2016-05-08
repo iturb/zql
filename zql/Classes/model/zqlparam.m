@@ -42,4 +42,11 @@ static NSString* const zqlparamcreatestring = @"%@ %@";
     return string;
 }
 
+-(NSString*)queryvalue
+{
+    NSString *string = [self.type queryvalue:self.value];
+    
+    return string;
+}
+
 @end

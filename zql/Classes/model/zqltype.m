@@ -18,4 +18,13 @@
     return type;
 }
 
+#pragma mark public
+
+-(NSString*)queryvalue:(id)value
+{
+    NSString *string = [NSString stringWithFormat:@"%@", value];
+    
+    return string;
+}
+
 @end

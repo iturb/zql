@@ -1,10 +1,13 @@
 #import "zqlquery.h"
 #import "zqlpk.h"
+#import "zqltypetext.h"
 
-static NSString* const zqlquerycreatetitle =            @"create table %@ ";
-static NSString* const zqlquerycreateparamsprefix =     @"(";
-static NSString* const zqlquerycreateparamsseparator =     @", ";
-static NSString* const zqlquerycreateparamspostfix =    @");";
+static NSString* const zqlquerycreatetitle =                    @"create table %@ ";
+static NSString* const zqlqueryinserttitle =                    @"insert into %@ ";
+static NSString* const zqlqueryvaluestitle =                    @" values";
+static NSString* const zqlqueryparamsprefix =                   @"(";
+static NSString* const zqlqueryparamsseparator =                @", ";
+static NSString* const zqlqueryparamspostfix =                  @");";
 
 @interface zqlparam ()
 
@@ -30,7 +33,7 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
         
         NSMutableString *string = [NSMutableString string];
         [string appendFormat:zqlquerycreatetitle, tablename];
-        [string appendString:zqlquerycreateparamsprefix];
+        [string appendString:zqlqueryparamsprefix];
         
         NSUInteger count = params.count;
         
@@ -40,7 +43,7 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
             
             if(indexparam)
             {
-                [string appendString:zqlquerycreateparamsseparator];
+                [string appendString:zqlqueryparamsseparator];
             }
             
             if(![param.comparename isEqualToString:primarykey.name])
@@ -49,13 +52,48 @@ static NSString* const zqlquerycreateparamspostfix =    @");";
             }
         }
         
-        if(count)
+        [string appendString:zqlqueryparamsseparator];
+        [string appendString:[primarykey querycreate]];
+        [string appendString:zqlqueryparamspostfix];
+        
+        query = [[zqlquery alloc] init:string];
+    }
+    
+    return query;
+}
+
++(instancetype)insert:(NSString*)tablename params:(NSArray<zqlparam*>*)params
+{
+    zqlquery *query;
+    
+    if(tablename && tablename.length && params)
+    {
+        NSMutableString *string = [NSMutableString string];
+        NSMutableString *stringvalues = [NSMutableString string];
+        [string appendFormat:zqlqueryinserttitle, tablename];
+        [string appendString:zqlqueryparamsprefix];
+        [stringvalues appendString:zqlqueryvaluestitle];
+        [stringvalues appendString:zqlqueryparamsprefix];
+        
+        NSUInteger count = params.count;
+        
+        for(NSUInteger indexparam = 0; indexparam < count; indexparam++)
         {
-            [string appendString:zqlquerycreateparamsseparator];
+            zqlparam *param = params[indexparam];
+            
+            if(indexparam)
+            {
+                [string appendString:zqlqueryparamsseparator];
+                [stringvalues appendString:zqlqueryparamsseparator];
+            }
+            
+            [string appendString:param.name];
+            [stringvalues appendString:[param queryvalue]];
         }
         
-        [string appendString:[primarykey querycreate]];
-        [string appendString:zqlquerycreateparamspostfix];
+        [string appendString:zqlqueryparamspostfix];
+        [stringvalues appendString:zqlqueryparamspostfix];
+        [string appendString:stringvalues];
         
         query = [[zqlquery alloc] init:string];
     }

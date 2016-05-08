@@ -12,4 +12,16 @@ static NSString* const zqltypetextname = @"text";
     return self;
 }
 
+#pragma mark -
+#pragma mark type
+
+#pragma mark public
+
+-(NSString*)queryvalue:(id)value
+{
+    NSString *string = [NSString stringWithFormat:@"\"%@\"", value];
+    
+    return string;
+}
+
 @end
