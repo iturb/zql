@@ -1,4 +1,5 @@
 #import "zqlqueryprocessor.h"
+#import "zqlresultsuccess.h"
 
 @interface zqlqueryprocessor ()
 
@@ -43,11 +44,10 @@
     return result;
 }
 
--(NSInteger)lastinsert:(sqlite3*)sqlite
+-(void)lastinsert:(sqlite3*)sqlite result:(zqlresultsuccess*)result
 {
     NSInteger lastinsert = (NSInteger)sqlite3_last_insert_rowid(sqlite);
-    
-    return lastinsert;
+    result.lastinsertid = lastinsert;
 }
 
 @end

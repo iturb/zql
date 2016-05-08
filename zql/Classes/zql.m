@@ -35,7 +35,7 @@
                     
                     if(result.success)
                     {
-                        
+                        [manager lastinsert:result];
                     }
                 }
             }
@@ -96,9 +96,9 @@
     return [self.queryprocessor finalizestatement];
 }
 
--(NSInteger)lastinsert
+-(void)lastinsert:(zqlresult*)result
 {
-    return [self.queryprocessor lastinsert:self.sqlite];
+    [self.queryprocessor lastinsert:self.sqlite result:result];
 }
 
 @end

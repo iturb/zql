@@ -9,6 +9,6 @@
 -(zqlresult*)prepare:(sqlite3*)sqlite;
 -(zqlresult*)step;
 -(zqlresult*)finalizestatement;
--(NSInteger)lastinsert:(sqlite3*)sqlite;
+-(void)lastinsert:(sqlite3*)sqlite result:(zqlresult*)result;
 
 @end
