@@ -31,12 +31,8 @@
                 
                 if(result.success)
                 {
-                    result = [manager finalizestatement];
-                    
-                    if(result.success)
-                    {
-                        [manager lastinsert:result];
-                    }
+                    [manager finalizestatement];
+                    [manager lastinsert:result];
                 }
             }
             
@@ -91,9 +87,9 @@
     return [self.queryprocessor step];
 }
 
--(zqlresult*)finalizestatement
+-(void)finalizestatement
 {
-    return [self.queryprocessor finalizestatement];
+    [self.queryprocessor finalizestatement];
 }
 
 -(void)lastinsert:(zqlresult*)result

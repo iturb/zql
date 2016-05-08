@@ -8,7 +8,7 @@
 -(instancetype)init:(zqlquery*)query;
 -(zqlresult*)prepare:(sqlite3*)sqlite;
 -(zqlresult*)step;
--(zqlresult*)finalizestatement;
+-(void)finalizestatement;
 -(void)lastinsert:(sqlite3*)sqlite result:(zqlresult*)result;
 
 @end

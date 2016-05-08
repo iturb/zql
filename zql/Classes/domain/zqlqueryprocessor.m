@@ -25,6 +25,14 @@
     return sqlite3_step(self.statement);
 }
 
+-(NSString*)columnname:(NSInteger)index
+{
+    const char *colname = sqlite3_column_name(self.statement, (int)index);
+    NSString *columname = [NSString stringWithUTF8String:colname];
+    
+    return columname;
+}
+
 #pragma mark public
 
 -(zqlresult*)prepare:(sqlite3*)sqlite
@@ -46,15 +54,32 @@
         
         if(success.moresteps)
         {
-            NSMutableArray
-            NSMutableArray *columns = [NSMutableArray array];
             NSInteger columncount = sqlite3_column_count(self.statement);
             
-            for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
+            do
             {
-                const char *colname = sqlite3_column_name(self.statement, (int)indexcolumn);
-                NSString *columname = [NSString stringWithUTF8String:colname];
-                [columns addObject:columns];
+                for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
+                {
+                    NSString *columname = [self columnname:indexcolumn];
+                }
+            }
+            while(resultnumber == [self stepresult]);
+            
+            
+            
+            
+            switch(sqlite3_column_type(*_stmt, _col))
+            {
+                case SQLITE_INTEGER:
+                    return @(sqlite3_column_int(*_stmt, _col));
+                case SQLITE_FLOAT:
+                    return @(sqlite3_column_double(*_stmt, _col));
+                case SQLITE_TEXT:
+                case SQLITE_BLOB:
+                    return [NSString stringWithUTF8String:(char*)sqlite3_column_text(*_stmt, _col)];
+                case SQLITE_NULL:
+                default:
+                    return nil;
             }
         }
     }
@@ -62,12 +87,9 @@
     return result;
 }
 
--(zqlresult*)finalizestatement
+-(void)finalizestatement
 {
-    NSInteger resultnumber = sqlite3_finalize(self.statement);
-    zqlresult *result = [zqlresult sqlresponse:resultnumber];
-    
-    return result;
+    sqlite3_finalize(self.statement);
 }
 
 -(void)lastinsert:(sqlite3*)sqlite result:(zqlresultsuccess*)result
