@@ -4,11 +4,17 @@
 
 static NSString* const zqlquerycreatetitle =                    @"create table %@ ";
 static NSString* const zqlqueryinserttitle =                    @"insert into %@ ";
+static NSString* const zqlqueryselecttitle =                    @"select ";
+static NSString* const zqlqueryselectall =                      @"*";
+static NSString* const zqlqueryselecttable =                    @" from %@";
+static NSString* const zqlqueryselectordered =                  @" order by %@ ";
+static NSString* const zqlqueryselectorderascending =           @"asc";
+static NSString* const zqlqueryselectorderdescending =          @"desc";
 static NSString* const zqlqueryvaluestitle =                    @" values";
 static NSString* const zqlqueryparamsprefix =                   @"(";
 static NSString* const zqlqueryparamsseparator =                @", ";
 static NSString* const zqlqueryparamspostfix =                  @")";
-static NSString* const zqlqueryparamsclosure =                  @";";
+static NSString* const zqlqueryclosure =                        @";";
 
 @interface zqlparam ()
 
@@ -28,7 +34,7 @@ static NSString* const zqlqueryparamsclosure =                  @";";
 {
     zqlquery *query;
     
-    if(tablename && tablename.length && params)
+    if([zqlquery tablenamevalid:tablename] && params)
     {
         zqlpk *primarykey = [zqlpk primarykey];
         
@@ -56,7 +62,7 @@ static NSString* const zqlqueryparamsclosure =                  @";";
         [string appendString:zqlqueryparamsseparator];
         [string appendString:[primarykey querycreate]];
         [string appendString:zqlqueryparamspostfix];
-        [string appendString:zqlqueryparamsclosure];
+        [string appendString:zqlqueryclosure];
         
         query = [[zqlquery alloc] init:string];
     }
@@ -68,7 +74,7 @@ static NSString* const zqlqueryparamsclosure =                  @";";
 {
     zqlquery *query;
     
-    if(tablename && tablename.length && params)
+    if([zqlquery tablenamevalid:tablename] && params)
     {
         NSMutableString *string = [NSMutableString string];
         NSMutableString *stringvalues = [NSMutableString string];
@@ -96,12 +102,73 @@ static NSString* const zqlqueryparamsclosure =                  @";";
         [string appendString:zqlqueryparamspostfix];
         [stringvalues appendString:zqlqueryparamspostfix];
         [string appendString:stringvalues];
-        [string appendString:zqlqueryparamsclosure];
+        [string appendString:zqlqueryclosure];
         
         query = [[zqlquery alloc] init:string];
     }
     
     return query;
+}
+
++(instancetype)select:(NSString*)tablename params:(NSArray<zqlparam*>*)params ordered:(zqlparam*)ordered ascendent:(BOOL)ascendent
+{
+    zqlquery *query;
+    
+    if([zqlquery tablenamevalid:tablename])
+    {
+        NSMutableString *string = [NSMutableString string];
+        [string appendString:zqlqueryselecttitle];
+        
+        NSInteger count = params.count;
+        
+        if(count)
+        {
+            for(NSUInteger indexparam = 0; indexparam < count; indexparam++)
+            {
+                zqlparam *param = params[indexparam];
+                
+                if(indexparam)
+                {
+                    [string appendString:zqlqueryparamsseparator];
+                }
+                
+                [string appendString:param.name];
+            }
+        }
+        else
+        {
+            [string appendString:zqlqueryselectall];
+        }
+        
+        [string appendFormat:zqlqueryselecttable, tablename];
+        
+        if(ordered)
+        {
+            [string appendFormat:zqlqueryselectordered, ordered.name];
+            
+            if(ascendent)
+            {
+                [string appendString:zqlqueryselectorderascending];
+            }
+            else
+            {
+                [string appendString:zqlqueryselectorderdescending];
+            }
+        }
+        
+        [string appendString:zqlqueryclosure];
+        
+        query = [[zqlquery alloc] init:string];
+    }
+    
+    return query;
+}
+
+#pragma mark private
+
++(BOOL)tablenamevalid:(NSString*)tablename
+{
+    return tablename && tablename.length;
 }
 
 -(instancetype)init:(NSString*)querystring
