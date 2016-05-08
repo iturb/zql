@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  zql: c46fe3fa159f48771dc6650a913adda9bf7de4ab
+  zql: 394339bd41e493f48bc4d201beff5f5d6fc62f0e
 
 COCOAPODS: 0.39.0

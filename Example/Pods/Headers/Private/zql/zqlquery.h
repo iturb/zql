@@ -1,1 +1,1 @@
-../../../../../zql/Classes/zqlquery.h
+../../../../../zql/Classes/domain/zqlquery.h
