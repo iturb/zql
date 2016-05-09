@@ -78,7 +78,7 @@
     return string;
 }
 
--(id)valuefor:(sqlite3 **)sqlite statement:(sqlite3_stmt**)statement column:(NSInteger)column
+-(id)valuefor:(sqlite3_stmt**)statement column:(NSInteger)column
 {
     return nil;
 }

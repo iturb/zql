@@ -15,7 +15,7 @@ static NSString* const zqltypeintegername = @"integer";
 #pragma mark -
 #pragma mark type
 
--(id)valuefor:(sqlite3**)sqlite statement:(sqlite3_stmt**)statement column:(NSInteger)column
+-(id)valuefor:(sqlite3_stmt**)statement column:(NSInteger)column
 {
     NSInteger intvalue = sqlite3_column_int(*statement, (int)column);
     NSNumber *value = @(intvalue);

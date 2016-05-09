@@ -9,7 +9,7 @@
 +(instancetype)blob;
 +(instancetype)fromsqltype:(NSInteger)sqltype;
 -(NSString*)queryvalue:(id)value;
--(id)valuefor:(sqlite3**)sqlite statement:(sqlite3_stmt**)statement column:(NSInteger)column;
+-(id)valuefor:(sqlite3_stmt**)statement column:(NSInteger)column;
 
 @property(copy, nonatomic)NSString *name;
 

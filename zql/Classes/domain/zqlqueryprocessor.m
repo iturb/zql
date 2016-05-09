@@ -67,18 +67,22 @@
             
             while(resultnumber == newresultnumber)
             {
+                zqlresultparams *params = [[zqlresultparams alloc] init];
+                
                 for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
                 {
                     zqltype *type = [self typeforcolumn:indexcolumn];
+                    id value = [type valuefor:&_statement column:indexcolumn];
                     NSString *columname = [self columnname:indexcolumn];
+                    
+                    zqlparam *param = [zqlparam type:type name:columname value:value];
+                    [params add:param];
                 }
+                
+                [success.params addObject:params];
                 
                 newresultnumber = [self stepresult];
             }
-            
-            
-            
-            
         }
     }
     
