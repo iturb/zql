@@ -1,14 +1,12 @@
 #import "zqlresultsuccess.h"
 
-@interface zqlresultsuccess ()
+@interface zqlresult ()
 
 @property(strong, nonatomic, readwrite)NSMutableArray<zqlresultparams*> *params;
 
 @end
 
 @implementation zqlresultsuccess
-
-@dynamic params;
 
 -(instancetype)init:(BOOL)moresteps
 {
