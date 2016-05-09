@@ -46,7 +46,6 @@ static NSString* const zqlquerytransactionrollback =            @"ROLLBACK";
         [string appendString:zqlqueryparamsprefix];
         
         [string appendString:[primarykey querycreate]];
-        [string appendString:zqlqueryparamsseparator];
         
         NSUInteger count = params.count;
         
