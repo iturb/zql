@@ -22,7 +22,7 @@
 {
     NSString *descr;
     
-    if(self.params)
+    if(self.params.count)
     {
         descr = [NSString stringWithFormat:@"%@", self.params];
     }
