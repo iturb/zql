@@ -16,6 +16,13 @@
     return self;
 }
 
+-(NSString*)description
+{
+    NSString *descr = [NSString stringWithFormat:@"%@", self.items];
+    
+    return descr;
+}
+
 #pragma mark public
 
 -(void)add:(zqlparam*)param

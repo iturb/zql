@@ -69,6 +69,13 @@
     return type;
 }
 
+-(NSString*)description
+{
+    NSString *descr = self.name;
+    
+    return descr;
+}
+
 #pragma mark public
 
 -(NSString*)queryvalue:(id)value

@@ -19,4 +19,20 @@
     return self;
 }
 
+-(NSString*)description
+{
+    NSString *descr;
+    
+    if(self.params)
+    {
+        descr = [NSString stringWithFormat:@"%@", self.params];
+    }
+    else
+    {
+        descr = [NSString stringWithFormat:@"%@", @(self.success)];
+    }
+    
+    return descr;
+}
+
 @end
