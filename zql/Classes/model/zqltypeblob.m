@@ -11,4 +11,17 @@ static NSString* const zqltypeblobname = @"blob";
     
     return self;
 }
+
+#pragma mark -
+#pragma mark type
+
+-(id)valuefor:(sqlite3**)sqlite statement:(sqlite3_stmt**)statement column:(NSInteger)column
+{
+    const void *rawdata = sqlite3_column_blob(*statement, (int)column);
+    NSInteger datasize = sqlite3_column_bytes(*statement, (int)column);
+    NSData *value = [[NSData alloc] initWithBytes:rawdata length:datasize];
+    
+    return value;
+}
+
 @end

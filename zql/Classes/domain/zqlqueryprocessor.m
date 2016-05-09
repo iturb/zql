@@ -67,36 +67,18 @@
             
             while(resultnumber == newresultnumber)
             {
-                newresultnumber = [self stepresult];
-            }
-            
-            
-            do
-            {
                 for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
                 {
                     zqltype *type = [self typeforcolumn:indexcolumn];
                     NSString *columname = [self columnname:indexcolumn];
                 }
+                
+                newresultnumber = [self stepresult];
             }
-            while(resultnumber == [self stepresult]);
             
             
             
             
-            switch(sqlite3_column_type(*_stmt, _col))
-            {
-                case SQLITE_INTEGER:
-                    return @(sqlite3_column_int(*_stmt, _col));
-                case SQLITE_FLOAT:
-                    return @(sqlite3_column_double(*_stmt, _col));
-                case SQLITE_TEXT:
-                case SQLITE_BLOB:
-                    return [NSString stringWithUTF8String:(char*)sqlite3_column_text(*_stmt, _col)];
-                case SQLITE_NULL:
-                default:
-                    return nil;
-            }
         }
     }
     

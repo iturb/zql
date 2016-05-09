@@ -15,13 +15,18 @@ static NSString* const zqltypetextname = @"text";
 #pragma mark -
 #pragma mark type
 
-#pragma mark public
-
 -(NSString*)queryvalue:(id)value
 {
     NSString *string = [NSString stringWithFormat:@"\"%@\"", value];
     
     return string;
+}
+
+-(id)valuefor:(sqlite3**)sqlite statement:(sqlite3_stmt**)statement column:(NSInteger)column
+{
+    NSString *value = [NSString stringWithUTF8String:sqlite3_column_text16(*statement, (int)column)];
+    
+    return value;
 }
 
 @end
