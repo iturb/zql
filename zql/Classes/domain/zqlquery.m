@@ -198,4 +198,9 @@ static NSString* const zqlquerytransactionrollback =            @"ROLLBACK";
     return self;
 }
 
+-(NSString*)description
+{
+    return self.querystring;
+}
+
 @end
