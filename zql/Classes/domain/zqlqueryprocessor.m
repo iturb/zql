@@ -33,6 +33,14 @@
     return columname;
 }
 
+-(zqltype*)typeforcolumn:(NSInteger)index
+{
+    NSInteger sqltype = sqlite3_column_type(self.statement, (int)index);
+    zqltype *type = [zqltype fromsqltype:sqltype];
+    
+    return type;
+}
+
 #pragma mark public
 
 -(zqlresult*)prepare:(sqlite3*)sqlite
@@ -55,11 +63,19 @@
         if(success.moresteps)
         {
             NSInteger columncount = sqlite3_column_count(self.statement);
+            NSInteger newresultnumber = resultnumber;
+            
+            while(resultnumber == newresultnumber)
+            {
+                newresultnumber = [self stepresult];
+            }
+            
             
             do
             {
                 for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
                 {
+                    zqltype *type = [self typeforcolumn:indexcolumn];
                     NSString *columname = [self columnname:indexcolumn];
                 }
             }
