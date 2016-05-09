@@ -15,6 +15,9 @@ static NSString* const zqlqueryparamsprefix =                   @"(";
 static NSString* const zqlqueryparamsseparator =                @", ";
 static NSString* const zqlqueryparamspostfix =                  @")";
 static NSString* const zqlqueryclosure =                        @";";
+static NSString* const zqlquerytransactionbegin =               @"BEGIN";
+static NSString* const zqlquerytransactioncommit =              @"COMMIT";
+static NSString* const zqlquerytransactionrollback =            @"ROLLBACK";
 
 @interface zqlparam ()
 
@@ -160,6 +163,27 @@ static NSString* const zqlqueryclosure =                        @";";
         
         query = [[zqlquery alloc] init:string];
     }
+    
+    return query;
+}
+
++(instancetype)begintransaction
+{
+    zqlquery *query = [[zqlquery alloc] init:zqlquerytransactionbegin];
+    
+    return query;
+}
+
++(instancetype)committransaction
+{
+    zqlquery *query = [[zqlquery alloc] init:zqlquerytransactioncommit];
+    
+    return query;
+}
+
++(instancetype)rollbacktransaction
+{
+    zqlquery *query = [[zqlquery alloc] init:zqlquerytransactionrollback];
     
     return query;
 }

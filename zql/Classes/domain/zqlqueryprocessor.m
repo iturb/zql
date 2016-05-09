@@ -1,5 +1,5 @@
 #import "zqlqueryprocessor.h"
-#import "zqlresultsuccess.h"
+#import "zqlresultparams.h"
 
 @interface zqlqueryprocessor ()
 
@@ -56,48 +56,48 @@
     NSInteger resultnumber = [self stepresult];
     zqlresult *result = [zqlresult sqlresponse:resultnumber];
     
-    if([result isKindOfClass:[zqlresultsuccess class]])
+    if(result.moresteps)
     {
-        zqlresultsuccess *success = (zqlresultsuccess*)result;
+        NSInteger columncount = sqlite3_column_count(self.statement);
+        NSInteger newresultnumber = resultnumber;
         
-        if(success.moresteps)
+        while(resultnumber == newresultnumber)
         {
-            NSInteger columncount = sqlite3_column_count(self.statement);
-            NSInteger newresultnumber = resultnumber;
+            zqlresultparams *params = [[zqlresultparams alloc] init];
             
-            while(resultnumber == newresultnumber)
+            for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
             {
-                zqlresultparams *params = [[zqlresultparams alloc] init];
+                zqltype *type = [self typeforcolumn:indexcolumn];
+                id value = [type valuefor:&_statement column:indexcolumn];
+                NSString *columname = [self columnname:indexcolumn];
                 
-                for(NSInteger indexcolumn = 0; indexcolumn < columncount; indexcolumn++)
-                {
-                    zqltype *type = [self typeforcolumn:indexcolumn];
-                    id value = [type valuefor:&_statement column:indexcolumn];
-                    NSString *columname = [self columnname:indexcolumn];
-                    
-                    zqlparam *param = [zqlparam type:type name:columname value:value];
-                    [params add:param];
-                }
-                
-                [success.params addObject:params];
-                
-                newresultnumber = [self stepresult];
+                zqlparam *param = [zqlparam type:type name:columname value:value];
+                [params add:param];
             }
+            
+            [result.params addObject:params];
+            
+            newresultnumber = [self stepresult];
         }
     }
     
     return result;
 }
 
--(void)finalizestatement
+-(zqlresult*)finalizestatement
 {
-    sqlite3_finalize(self.statement);
+    NSInteger resultnumber = sqlite3_finalize(self.statement);
+    zqlresult *result = [zqlresult sqlresponse:resultnumber];
+    
+    return result;
 }
 
--(void)lastinsert:(sqlite3*)sqlite result:(zqlresultsuccess*)result
+-(zqlresult*)lastinsert:(sqlite3*)sqlite
 {
     NSInteger lastinsert = (NSInteger)sqlite3_last_insert_rowid(sqlite);
-    result.lastinsertid = lastinsert;
+    zqlresult *result = [zqlresult lastinsert:lastinsert];
+    
+    return result;
 }
 
 @end
