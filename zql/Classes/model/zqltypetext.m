@@ -1,6 +1,7 @@
 #import "zqltypetext.h"
 
 static NSString* const zqltypetextname = @"text";
+static NSString* const zqltypetextcreate = @"TEXT COLLATE NOCASE";
 
 @implementation zqltypetext
 
@@ -20,6 +21,11 @@ static NSString* const zqltypetextname = @"text";
     NSString *string = [NSString stringWithFormat:@"\"%@\"", value];
     
     return string;
+}
+
+-(NSString*)createquery
+{
+    return zqltypetextcreate;
 }
 
 -(id)valuefor:(sqlite3_stmt**)statement column:(NSInteger)column

@@ -85,6 +85,11 @@
     return string;
 }
 
+-(NSString*)createquery
+{
+    return self.name;
+}
+
 -(id)valuefor:(sqlite3_stmt**)statement column:(NSInteger)column
 {
     return nil;
