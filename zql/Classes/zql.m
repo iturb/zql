@@ -134,9 +134,9 @@
 
 #pragma mark functionality
 
--(void)connect
+-(void)connect:(NSString*)dbname
 {
-    NSInteger resultnumber = [self.connection connect:&_sqlite];
+    NSInteger resultnumber = [self.connection connect:&_sqlite dbname:dbname];
     
     self.result = [zqlresult sqlresponse:resultnumber];
 }
