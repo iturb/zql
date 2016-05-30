@@ -16,11 +16,17 @@
 +(nonnull zqlresult*)query:(nonnull NSArray<zqlquery*>*)querylist db:(nullable NSString*)dbpath
 {
     zqlresult *result;
+    NSString *dbname = dbpath;
     
-    if([zqlconfig shared].dbname)
+    if(!dbname)
+    {
+        dbname = [zqlconfig shared].dbname;
+    }
+    
+    if(dbname)
     {
         zql *manager = [[zql alloc] init];
-        [manager connect];
+        [manager connect:dbname];
         
         if(manager.result.success)
         {
