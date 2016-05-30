@@ -13,7 +13,7 @@
 
 @implementation zql
 
-+(zqlresult*)query:(NSArray<zqlquery*>*)querylist
++(nonnull zqlresult*)query:(nonnull NSArray<zqlquery*>*)querylist db:(nullable NSString*)dbpath
 {
     zqlresult *result;
     
